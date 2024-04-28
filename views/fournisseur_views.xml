@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <!-- Vue formulaire pour les fournisseurs -->
+        <record model="ir.ui.view" id="fournisseur_form_view">
+            <field name="name">fournisseur.form</field>
+            <field name="model">fournisseur.model_fournisseur</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="adresse"/>
+                            <field name="contact"/>
+                            <field name="conditions_paiement"/>
+                            <!-- Ajoutez d'autres champs si nécessaire -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir la vue formulaire des fournisseurs -->
+        <record model="ir.actions.act_window" id="action_fournisseur_form">
+            <field name="name">Fournisseurs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fournisseur.model_fournisseur</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu pour accéder aux fournisseurs -->
+        <menuitem id="menu_fournisseur_root" name="Fournisseurs"/>
+        <menuitem id="menu_fournisseur" name="Fournisseurs" parent="menu_fournisseur_root" action="action_fournisseur_form"/>
+    </data>
+</odoo>

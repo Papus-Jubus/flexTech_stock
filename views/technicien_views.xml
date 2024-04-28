@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <!-- Vue formulaire pour les techniciens -->
+        <record model="ir.ui.view" id="technicien_form_view">
+            <field name="name">technicien.form</field>
+            <field name="model">technicien.model_technicien</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="specialite"/>
+                            <!-- Ajoutez d'autres champs si nécessaire -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir la vue formulaire des techniciens -->
+        <record model="ir.actions.act_window" id="action_technicien_form">
+            <field name="name">Techniciens</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">technicien.model_technicien</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu pour accéder aux techniciens -->
+        <menuitem id="menu_technicien_root" name="Techniciens"/>
+        <menuitem id="menu_technicien" name="Techniciens" parent="menu_technicien_root" action="action_technicien_form"/>
+    </data>
+</odoo>

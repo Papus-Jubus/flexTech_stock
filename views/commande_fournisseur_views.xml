@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <!-- Vue formulaire pour les commandes fournisseurs -->
+        <record model="ir.ui.view" id="commande_fournisseur_form_view">
+            <field name="name">commande.fournisseur.form</field>
+            <field name="model">commande.fournisseur</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="date_commande"/>
+                            <field name="fournisseur_id"/>
+                            <field name="article_ids"/>
+                            <field name="quantite"/>
+                            <!-- Ajoutez d'autres champs si nécessaire -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir la vue formulaire des commandes fournisseurs -->
+        <record model="ir.actions.act_window" id="action_commande_fournisseur_form">
+            <field name="name">Commandes Fournisseurs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commande.fournisseur</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu pour accéder aux commandes fournisseurs -->
+        <menuitem id="menu_commande_fournisseur_root" name="Commandes Fournisseurs"/>
+        <menuitem id="menu_commande_fournisseur" name="Commandes Fournisseurs" parent="menu_commande_fournisseur_root" action="action_commande_fournisseur_form"/>
+    </data>
+</odoo>

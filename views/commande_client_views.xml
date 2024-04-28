@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <!-- Vue formulaire pour les commandes clients -->
+        <record model="ir.ui.view" id="commande_client_form_view">
+            <field name="name">commande.client.form</field>
+            <field name="model">commande.client</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="date_commande"/>
+                            <field name="client_id"/>
+                            <field name="article_ids"/>
+                            <field name="quantite"/>
+                            <!-- Ajoutez d'autres champs si nécessaire -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir la vue formulaire des commandes clients -->
+        <record model="ir.actions.act_window" id="action_commande_client_form">
+            <field name="name">Commandes Clients</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commande.client</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu pour accéder aux commandes clients -->
+        <menuitem id="menu_commande_client_root" name="Commandes Clients"/>
+        <menuitem id="menu_commande_client" name="Commandes Clients" parent="menu_commande_client_root" action="action_commande_client_form"/>
+    </data>
+</odoo>

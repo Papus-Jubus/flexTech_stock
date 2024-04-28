@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <!-- Vue formulaire pour les articles -->
+        <record model="ir.ui.view" id="article_form_view">
+            <field name="name">article.form</field>
+            <field name="model">article.model_article</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="code"/>
+                            <field name="category_id"/>
+                            <field name="unit_of_measure"/>
+                            <field name="quantity_available"/>
+                            <field name="reorder_point"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue arborescence pour les catégories d'articles -->
+        <record model="ir.ui.view" id="article_category_tree_view">
+            <field name="name">article.category.tree</field>
+            <field name="model">article.category</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir la vue formulaire des articles -->
+        <record model="ir.actions.act_window" id="action_article_form">
+            <field name="name">Articles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">article.model_article</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Action pour ouvrir la vue arborescence des catégories d'articles -->
+        <record model="ir.actions.act_window" id="action_article_category_tree">
+            <field name="name">Catégories d'articles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">article.category</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- Menu pour accéder aux articles -->
+        <menuitem id="menu_article_root" name="Articles"/>
+        <menuitem id="menu_article" name="Articles" parent="menu_article_root" action="action_article_form"/>
+
+        <!-- Menu pour accéder aux catégories d'articles -->
+        <menuitem id="menu_article_category_root" name="Catégories d'articles"/>
+        <menuitem id="menu_article_category" name="Catégories d'articles" parent="menu_article_category_root" action="action_article_category_tree"/>
+    </data>
+</odoo>

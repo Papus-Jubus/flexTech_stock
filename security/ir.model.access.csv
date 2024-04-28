@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+model_article,article.model_article,model_article_group,1,1,1,1
+model_emplacement,emplacement.model_emplacement,model_emplacement_group,1,1,1,1
+model_fournisseur,fournisseur.model_fournisseur,model_fournisseur_group,1,1,1,1
+model_commande_client,commande.client,model_commande_client_group,1,1,1,1
+model_commande_fournisseur,commande.fournisseur,model_commande_fournisseur_group,1,1,1,1
+model_retour_service,retour.service,model_retour_service_group,1,1,1,1
+model_technicien,technicien.model_technicien,model_technicien_group,1,1,1,1

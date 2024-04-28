@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <!-- Vue formulaire pour les retours en réparation / services après-vente -->
+        <record model="ir.ui.view" id="retour_service_form_view">
+            <field name="name">retour.service.form</field>
+            <field name="model">retour.service</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="date_demande"/>
+                            <field name="article_id"/>
+                            <field name="description_probleme"/>
+                            <field name="client_id"/>
+                            <field name="statut"/>
+                            <!-- Ajoutez d'autres champs si nécessaire -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir la vue formulaire des retours en réparation / services après-vente -->
+        <record model="ir.actions.act_window" id="action_retour_service_form">
+            <field name="name">Retours en Réparation / Services Après-Vente</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">retour.service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu pour accéder aux retours en réparation / services après-vente -->
+        <menuitem id="menu_retour_service_root" name="Retours en Réparation / Services Après-Vente"/>
+        <menuitem id="menu_retour_service" name="Retours en Réparation / Services Après-Vente" parent="menu_retour_service_root" action="action_retour_service_form"/>
+    </data>
+</odoo>
